@@ -2,6 +2,9 @@
 
 Simple single-page app to symmetrically encrypt/decrypt text in the browser using OpenPGP.js.
 
+<img width="1000" height="891" alt="Desktop-sized screen of Zero-Install PGP running in the browser." src="https://github.com/user-attachments/assets/734b7382-ff26-421e-8374-7e8475adc48c" />
+
+
 Usage
 
 - Open `index.html` in your browser, or run a simple static server in the repository root:
