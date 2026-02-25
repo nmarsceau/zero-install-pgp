@@ -92,7 +92,7 @@ label {
 }
 
 textarea,
-input[type="password"] {
+.secret-key-input {
 	width: 100%;
 	border: 1px solid var(--line);
 	border-radius: 12px;
@@ -109,10 +109,45 @@ textarea {
 }
 
 textarea:focus,
-input[type="password"]:focus,
 button:focus-visible {
 	outline: 2px solid color-mix(in srgb, var(--primary) 65%, white);
 	outline-offset: 2px;
+}
+
+.password-input-group {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: stretch;
+}
+
+.password-input-group .secret-key-input {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.toggle-secret-btn {
+	border-radius: 0 12px 12px 0;
+	border-left: 0;
+	padding: 0.8rem 0.9rem;
+	white-space: nowrap;
+	display: inline-flex;
+	align-items: center;
+	transform: none;
+}
+
+.toggle-secret-btn:hover:not(:disabled) {
+	transform: none;
+}
+
+.password-input-group:focus-within {
+	border-radius: 12px;
+	outline: 2px solid color-mix(in srgb, var(--primary) 65%, white);
+	outline-offset: 2px;
+}
+
+.password-input-group:focus-within .secret-key-input,
+.password-input-group:focus-within .toggle-secret-btn {
+	outline: none;
 }
 
 .button-row {
@@ -246,6 +281,10 @@ button:disabled {
 	.password-action-row {
 		grid-template-columns: 1fr;
 		align-items: stretch;
+	}
+
+	.password-input-group {
+		grid-template-columns: minmax(0, 1fr) auto;
 	}
 
 	.inline-actions {

@@ -4,6 +4,7 @@
 	const elements = {
 		inputText: document.getElementById("input-text"),
 		secretKey: document.getElementById("secret-key"),
+		toggleSecretVisibilityBtn: document.getElementById("toggle-secret-visibility-btn"),
 		encryptBtn: document.getElementById("encrypt-btn"),
 		decryptBtn: document.getElementById("decrypt-btn"),
 		copyOutputBtn: document.getElementById("copy-output-btn"),
@@ -13,6 +14,7 @@
 	};
 
 	let isBusy = false;
+	let isSecretVisible = false;
 
 	function setStatus(message, kind) {
 		elements.statusText.textContent = message || "";
@@ -162,10 +164,19 @@
 
 		elements.inputText.value = "";
 		elements.secretKey.value = "";
+		setSecretVisibility(false);
 		renderOutput("");
 		setStatus("", "");
 		elements.inputText.focus();
 		updateVisibility();
+	}
+
+	function setSecretVisibility(shouldShow) {
+		isSecretVisible = shouldShow;
+		elements.secretKey.type = shouldShow ? "text" : "password";
+		elements.toggleSecretVisibilityBtn.textContent = shouldShow ? "Hide" : "Show";
+		elements.toggleSecretVisibilityBtn.setAttribute("aria-pressed", String(shouldShow));
+		elements.toggleSecretVisibilityBtn.setAttribute("aria-label", shouldShow ? "Hide password" : "Show password");
 	}
 
 	function toggleHidden(element, shouldHide) {
@@ -194,6 +205,10 @@
 			void copyOutput();
 		});
 
+		elements.toggleSecretVisibilityBtn.addEventListener("click", function () {
+			setSecretVisibility(!isSecretVisible);
+		});
+
 		elements.clearBtn.addEventListener("click", clearAll);
 
 		elements.inputText.addEventListener("input", updateVisibility);
@@ -201,6 +216,7 @@
 	}
 
 	attachEvents();
+	setSecretVisibility(false);
 	updateVisibility();
 	setStatus("Ready.", "info");
 	elements.inputText.focus();

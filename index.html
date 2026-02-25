@@ -32,13 +32,17 @@
 			<div class="field">
 				<label for="secret-key">Password / Encryption Key</label>
 				<div class="password-action-row">
-					<input
-						id="secret-key"
-						name="secret-key"
-						type="password"
-						autocomplete="current-password"
-						placeholder="Enter a shared password"
-					>
+					<div class="password-input-group">
+						<input
+							id="secret-key"
+							name="secret-key"
+							class="secret-key-input"
+							type="password"
+							autocomplete="current-password"
+							placeholder="Enter a shared password"
+						>
+						<button id="toggle-secret-visibility-btn" type="button" class="ghost toggle-secret-btn" aria-label="Show password" aria-pressed="false">Show</button>
+					</div>
 					<div class="button-row inline-actions" aria-label="Primary actions">
 						<button id="encrypt-btn" type="button">Encrypt</button>
 						<button id="decrypt-btn" type="button" class="secondary">Decrypt</button>
