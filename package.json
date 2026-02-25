@@ -1,0 +1,13 @@
+{
+	"name": "drive-by-encryption",
+	"version": "1.0.0",
+	"description": "This is a website that supports symmetric encryption/decryption in the browser.",
+	"license": "MIT",
+	"author": "Nick Marsceau",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "npx http-server . -p 8080"
+	}
+}
