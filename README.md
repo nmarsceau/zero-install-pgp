@@ -1,4 +1,4 @@
-# Drive-by Encryption
+# Zero-Install PGP
 
 Simple single-page app to symmetrically encrypt/decrypt text in the browser using OpenPGP.js.
 
@@ -14,5 +14,6 @@ npx http-server .
 
 Notes
 
-- This app uses the bundled `openpgp.min.js` file. No build step required.
+- This app loads OpenPGP.js from the unpkg CDN. No build step required.
 - For local testing, use a static server rather than opening via file:// for best compatibility with clipboard APIs.
+- This utility was build using GPT-5.3-Codex.

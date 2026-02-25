@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Zero-Install PGP</title>
+	<link rel="icon" href="favicon.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<main class="app-shell">
+		<section class="panel" aria-labelledby="app-title">
+			<button id="clear-btn" type="button" class="ghost tool-clear-btn is-hidden" aria-label="Clear all fields">Clear</button>
+
+			<header class="panel-header">
+				<h1 id="app-title">Zero-Install PGP</h1>
+				<p class="subtitle">Symmetric-key encryption/decryption <strong>in the browser</strong> using <a href="https://openpgpjs.org/" target="_blank" rel="noopener noreferrer">OpenPGP.js</a>.</p>
+			</header>
+
+			<div class="field">
+				<label for="input-text">Input (plaintext or armored ciphertext)</label>
+				<textarea
+					id="input-text"
+					name="input-text"
+					rows="12"
+					spellcheck="false"
+					autocomplete="off"
+					placeholder="Type plaintext to encrypt, or paste armored PGP ciphertext to decrypt..."
+				></textarea>
+			</div>
+
+			<div class="field">
+				<label for="secret-key">Password / Encryption Key</label>
+				<div class="password-action-row">
+					<input
+						id="secret-key"
+						name="secret-key"
+						type="password"
+						autocomplete="current-password"
+						placeholder="Enter a shared password"
+					>
+					<div class="button-row inline-actions" aria-label="Primary actions">
+						<button id="encrypt-btn" type="button">Encrypt</button>
+						<button id="decrypt-btn" type="button" class="secondary">Decrypt</button>
+					</div>
+				</div>
+			</div>
+
+			<p id="status-text" class="status" role="status" aria-live="polite"></p>
+
+			<div class="field">
+				<label for="output-text">Output</label>
+				<div class="output-wrap">
+					<output id="output-text" class="output" for="input-text secret-key"></output>
+					<button id="copy-output-btn" type="button" class="ghost copy-overlay-btn is-hidden">Copy</button>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<script src="https://unpkg.com/openpgp@6.3.0/dist/openpgp.min.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>

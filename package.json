@@ -1,5 +1,5 @@
 {
-	"name": "drive-by-encryption",
+	"name": "zero-install-pgp",
 	"version": "1.0.0",
 	"description": "This is a website that supports symmetric encryption/decryption in the browser.",
 	"license": "MIT",
