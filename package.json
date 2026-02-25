@@ -1,8 +1,8 @@
 {
 	"name": "zero-install-pgp",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "This is a website that supports symmetric encryption/decryption in the browser.",
-	"license": "MIT",
+	"license": "Apache-2.0",
 	"author": "Nick Marsceau",
 	"type": "module",
 	"main": "index.js",
